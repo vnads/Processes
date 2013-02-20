@@ -1,0 +1,6 @@
+typedef struct {
+	int Pid;
+	int Ppid;
+	char Cmd[250];
+	int * children;
+} Process;
