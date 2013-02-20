@@ -37,7 +37,7 @@ void Process_Print(Process* process, const int subIndex)
 		printf("\t");
 	}
 
-	//printf("%d\t", process->Pid);
+	printf("%d\t", process->Pid);
 	//printf("%d\t", process->Ppid);
 	printf("%s\n", process->Cmd);
 
