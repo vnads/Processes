@@ -18,4 +18,6 @@ void BuildTree(Process* processes[], Process* tree[], const int maxsize);
 
 void PrintTree(Process* processes[], const int maxLength);
 
+Process* CreateProcess(char buffer[]);
+
 

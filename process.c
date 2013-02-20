@@ -48,6 +48,16 @@ void Process_Print(Process* process, const int subIndex)
 }
 
 
+Process* CreateProcess(char buffer[])
+{
+	int maxTokens = 20;
+	char* tokens[maxTokens];
+	int tokencount = SplitString(buffer, tokens, maxTokens);
+	char * pid = tokens[1];
+	char * ppid = tokens[2];
+	char * cmd = tokens[7];
+	return Process_new(atoi(pid), atoi(ppid), cmd);	
+}
 void BuildTree(Process* processes[], Process* tree[], const int maxsize)
 {
 	int treeIndex = 0;
