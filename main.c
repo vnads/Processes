@@ -24,16 +24,23 @@ int main ()
 			char * pid = tokens[1];
 			char * ppid = tokens[2];
 			char * cmd = tokens[7];
-			processes[index] = Process_new(pid, ppid, cmd);			
+			processes[index] = Process_new(atoi(pid), atoi(ppid), cmd);			
 			index ++;		
 		}
 	}
+	Process* tree[index];
+	BuildTree(processes, tree, index);
+	int rootCount = 0;	
 	for(int i = 0; i < index; i++)
 	{
-		Process* process = processes[i];
-		printf(process->Cmd);
-		printf("\n");
+		if(tree[i] != NULL)
+		{
+			rootCount++;
+		}
 	}
+	printf("%d\n", rootCount);	
+	PrintTree(tree, rootCount);
+
 	pclose(stream);
 }
 
