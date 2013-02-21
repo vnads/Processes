@@ -1,30 +1,15 @@
-# MINIX MAKEFILE
-PROG=   processes
-SRCS=   main.c process.c
+# LINUX GCC PATH
+CC=/usr/bin/gcc
+# MINIX GCC PATH
+#/usr/pkg/bin/gcc
+CFLAGS=-g -std=c99
 
-DPADD+= ${LIBDRIVER} ${LIBSYS}
-LDADD+= -ldriver -lsys
+main: main.o process.o
 
-MAN=
+main.o: main.c
 
-BINDIR?= /usr/sbin
+process.o: process.c	
 
-CPPFLAGS+= -D_SYSTEM=1
-
-.include <bsd.prog.mk>
-
-
-# LINUX MAKEFILE
-#CC=/usr/bin/gcc
-#CFLAGS=-g -std=c99
-
-#main: main.o process.o
-
-#main.o: main.c
-
-#process.o: process.c	
-
-#clean:
-#	rm -f main *.o
-
+clean:
+	rm -f main *.o
 
