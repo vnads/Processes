@@ -1,4 +1,4 @@
-# 
+# MINIX MAKEFILE
 PROG=   processes
 SRCS=   main.c process.c
 
