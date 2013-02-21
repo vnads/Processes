@@ -1,13 +1,30 @@
-CC=/usr/bin/gcc
-CFLAGS=-g -std=c99
+# 
+PROG=   processes
+SRCS=   main.c process.c
 
-main: main.o process.o
+DPADD+= ${LIBDRIVER} ${LIBSYS}
+LDADD+= -ldriver -lsys
 
-main.o: main.c
+MAN=
 
-process.o: process.c	
+BINDIR?= /usr/sbin
 
-clean:
-	rm -f main *.o
+CPPFLAGS+= -D_SYSTEM=1
+
+.include <bsd.prog.mk>
+
+
+# LINUX MAKEFILE
+#CC=/usr/bin/gcc
+#CFLAGS=-g -std=c99
+
+#main: main.o process.o
+
+#main.o: main.c
+
+#process.o: process.c	
+
+#clean:
+#	rm -f main *.o
 
 
